@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="helang.love@qq.com">
+    <title>DOM操作</title>
+    <link rel="stylesheet" href="css/helang.css">
+    <script src="js/jq.js"></script>
+    <style type="text/css">
+        .nav_head.on {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<nav class="hl_nav">
+    <ul class="nav_list">
+        <li class="active">
+            <a class="nav_head" href="javascipt:;">网站首页</a>
+
+        </li>
+        <li class="">
+            <a class="nav_head" href="javascipt:;">在线下载</a>
+
+        </li>
+        <li class="" data-index="demo">
+            <a class="nav_head" href="javascipt:;">成功案例</a>
+
+        </li>
+        <li class="">
+            <a class="nav_head" href="javascipt:;">新闻动态</a>
+        </li>
+    </ul>
+    <div class="shade"></div>
+</nav>
+<div id="appendDiv"></div>
+<div id="intro">
+    <button>修改css属性</button>
+    <button>添加class</button>
+    <button>删除class</button>
+    <button>判断class</button>
+    <button>class切换</button>
+    <button class="add">插入内容</button>
+    <button class="delete" onclick="deleteFn()">删除</button>
+</div>
+
+<script>
+    $(function () {
+        $("button").on("click", function () {
+            var index = $(this).index(),
+                lis = $('.nav_head');
+            if (index == 0) {
+                lis.css({
+                    'font-size': '24px'
+                })
+            } else if (index == 1) {
+                lis.addClass('on');
+            } else if (index == 2) {
+                lis.removeClass('on');
+            } else if (index == 3) {
+                var hasCls = lis.hasClass('on');
+                console.log(hasCls);
+            } else if (index == 4) {
+                lis.toggleClass('on');
+            }
+        })
+
+        $(".hl_nav").on("click.parent", function () {
+            console.log($(this).parent());
+            console.log($(this).children());
+            console.log($(this).children('#intro'));
+            console.log($(this).find('.nav_head'));
+        })
+
+        $(".nav_list li").on("click", function () {
+            event.stopPropagation();
+            console.log($(this).next());
+            console.log($(this).prev());
+            console.log($(this).siblings());
+
+            // $(this).addClass('active').siblings().removeClass('active');
+        })
+
+        $.ajax({
+            type: "post",
+            url: 'https://ex8yanshi.lonsun.cn/search/getHotWords',
+            data: {
+                siteId: 2653861
+            }
+        }).done(function (resp) {
+            console.log(resp);
+        })
+
+        function deleteFn() {
+            $("#appendDiv").remove();
+        }
+        //
+    })
+</script>
+</body>
+</html>

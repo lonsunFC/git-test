@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="author" content="helang.love@qq.com">
-    <title>选择器</title>
+    <title>事件</title>
     <link rel="stylesheet" href="css/helang.css">
     <script src="js/jq.js"></script>
     <style type="text/css">
@@ -17,7 +17,7 @@
 <nav class="hl_nav">
     <ul class="nav_list">
         <li class="active">
-            <a class="nav_head" href="javascipt:;">网站首页</a>
+            <a class="nav_head" href="https://www.baidu.com">网站首页</a>
 
         </li>
         <li class="">
@@ -35,24 +35,42 @@
     <div class="shade"></div>
 </nav>
 <div id="intro">
-    <h3>后代选择器：$("ul a")</h3>
-    <h3>子代选择器：$("ul > li")</h3>
-    <h3>兄弟选择器：$("li.active + li")</h3>
-    <h3>兄弟选择器：$("li.active ~ li")</h3>
-    <!--同胞元素 css符合-->
-
-    <h2>易错</h2>
-    <h3>$("div, ul, li.active")</h3><!--多条件的选择器-->
-    <h3>$('.active','ul') $([子节点],[父节点])</h3>
-    <h3>$("[data-index='demo']")</h3>
-    <!--lizi-->
-
-
+    <button>添加</button>
 </div>
 
 <script>
-    // console.log($(".on"));
+    $(function () {
+        $(".nav_list li").click(function () {
+            return false;
+        });
 
+        $(".nav_list li").on("click", function(){
+            console.log($(this));
+            // console.log($(this).text());
+            // console.log($(this).html());
+
+        });
+
+
+        $(".nav_list li").on("mouseover",function(){
+
+            // console.log($(this).html());
+
+        });
+
+
+
+        /*$("button").on("click",function(){
+            $(".nav_list").append('<li class="">\n' +
+                '            <a class="nav_head" href="javascipt:;">娱乐新闻</a>\n' +
+                '        </li>')
+
+        })
+
+        $("body").on("click",".nav_list li",function(){
+            // console.log($(this));
+        })*/
+    })
 </script>
 </body>
 </html>
