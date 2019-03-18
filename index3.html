@@ -28,7 +28,7 @@
             <a class="nav_head" href="javascipt:;">成功案例</a>
 
         </li>
-        <li class="">
+        <li class="test">
             <a class="nav_head" href="javascipt:;">新闻动态</a>
         </li>
     </ul>
@@ -44,7 +44,7 @@
             return false;
         });
 
-        $(".nav_list li").on("click", function(){
+        $(".nav_list li").on("click", function () {
             console.log($(this));
             // console.log($(this).text());
             // console.log($(this).html());
@@ -52,12 +52,11 @@
         });
 
 
-        $(".nav_list li").on("mouseover",function(){
+        $(".nav_list li").on("mouseover", function () {
 
             // console.log($(this).html());
 
         });
-
 
 
         /*$("button").on("click",function(){
@@ -70,6 +69,20 @@
         $("body").on("click",".nav_list li",function(){
             // console.log($(this));
         })*/
+
+        $(".test").on("click", function () {
+            var b = 20;
+            setTimeout(function () {
+                var x = fn();
+                console.log(x);
+            }, 1000)
+        });
+
+        var a = 10;
+
+        function fn() {
+            return a + b;
+        }
     })
 </script>
 </body>
