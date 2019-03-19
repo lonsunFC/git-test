@@ -41,11 +41,13 @@
 <script>
     $(function () {
         $(".nav_list li").click(function () {
+            console.log($(this));
+            console.log($(this).index());
             return false;
         });
 
         $(".nav_list li").on("click", function () {
-            console.log($(this));
+
             // console.log($(this).text());
             // console.log($(this).html());
 
@@ -70,7 +72,7 @@
             // console.log($(this));
         })*/
 
-        $(".test").on("click", function () {
+        /*$(".test").on("click", function () {
             var b = 20;
             setTimeout(function () {
                 var x = fn();
@@ -82,7 +84,7 @@
 
         function fn() {
             return a + b;
-        }
+        }*/
     })
 </script>
 </body>
