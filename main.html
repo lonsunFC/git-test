@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="helang.love@qq.com">
+    <title>小实例</title>
+    <link rel="stylesheet" href="css/helang.css">
+    <script src="js/jq.js"></script>
+    <style type="text/css">
+        .tab{
+            clear:both;
+            float: left;
+            height: 230px;
+            overflow: hidden;
+            width: 310px;
+        }
+        .tab .tab_menu {
+            clear:both;
+        }
+        .tab .tab_menu li {
+            float:left;
+            text-align:center;
+            cursor:pointer;
+            list-style:none;
+            padding:1px 6px;
+            margin-right:4px;
+            background:#F1F1F1;
+            border:1px solid #898989;
+            border-bottom:none;
+        }
+        .tab .tab_menu li.hover {
+            background:#DFDFDF;
+        }
+        .tab .tab_menu li.selected {
+            color:#FFF;
+            background:#6D84B4;
+        }
+        .tab .tab_box {
+            height: 50px;
+            clear:both;
+            border:1px solid #898989;
+        }
+        .tab .hide{
+            display:none
+        }
+    </style>
+</head>
+<body>
+<div class="tab">
+    <div class="tab_menu">
+        <ul>
+            <li class="selected">HTML</li>
+            <li class="">CSS</li>
+            <li class="">Js</li>
+        </ul>
+    </div>
+    <div class="tab_box">
+        <div>HTML 很容易学习</div>
+        <div class="hide">
+            通过使用 CSS 来提升工作效率
+        </div>
+        <div class="hide">
+            JavaScript 是因特网上最流行的脚本语言
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(function(){
+        var $div_li =$("div.tab_menu ul li");
+        $div_li.click(function(){
+            $(this).addClass("selected")            //当前<li>元素高亮
+                .siblings().removeClass("selected");  //去掉其他同辈<li>元素的高亮
+            var index =  $(this).index();  // 获取当前点击的<li>元素 在 全部li元素中的索引。
+            $("div.tab_box > div")   	//选取子节点。不选取子节点的话，会引起错误。如果里面还有div
+                .eq(index).show()   //显示 <li>元素对应的<div>元素
+                .siblings().hide(); //隐藏其他几个同辈的<div>元素
+        }).hover(function(){
+            $(this).addClass("hover");
+        },function(){
+            $(this).removeClass("hover");
+        })
+    })
+</script>
+</body>
+</html>
