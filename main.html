@@ -8,13 +8,14 @@
     <title>小实例</title>
     <link rel="stylesheet" href="css/helang.css">
     <script src="js/jq.js"></script>
+    <script src="js/common.min.js"></script>
     <style type="text/css">
         .tab{
             clear:both;
-            float: left;
             height: 230px;
             overflow: hidden;
             width: 310px;
+            margin: 0 auto;
         }
         .tab .tab_menu {
             clear:both;
@@ -45,6 +46,11 @@
         .tab .hide{
             display:none
         }
+
+        /*
+        var tabIndex = Ls.url.get('tabIndex');
+        $div_li.eq(tabIndex).click();
+        */
     </style>
 </head>
 <body>
@@ -83,6 +89,9 @@
         },function(){
             $(this).removeClass("hover");
         })
+
+
+
     })
 </script>
 </body>
