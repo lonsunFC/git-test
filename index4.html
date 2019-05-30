@@ -82,11 +82,17 @@
             console.log($(this).prev());
             console.log($(this).siblings());
 
-            // $(this).addClass('active').siblings().removeClass('active');
+        })
+
+        $(".add").on("click", function(){
+            $(".nav_list").append('<li class="">\n' +
+                '            <a class="nav_head" href="javascipt:;">娱乐新闻</a>\n' +
+                '        </li>');
+
         })
 
         function deleteFn() {
-            $("#appendDiv").remove();
+            $(".nav_list li").last().remove();
         }
         //
     })

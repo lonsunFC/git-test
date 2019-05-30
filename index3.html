@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="css/helang.css">
     <script src="js/jq.js"></script>
     <style type="text/css">
-
+        .dn {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -34,6 +36,23 @@
     </ul>
     <div class="shade"></div>
 </nav>
+<ul class="nav_list dn">
+    <li class="">
+        <a class="nav_head" href="javascipt:;">在线下载</a>
+
+    </li>
+    <li class="" data-index="demo">
+        <a class="nav_head" href="javascipt:;">成功案例</a>
+
+    </li>
+    <li class="">
+        <a class="nav_head" href="javascipt:;">新闻动态</a>
+    </li>
+    <li class="active">
+        <a class="nav_head" href="https://www.baidu.com">网站首页</a>
+
+    </li>
+</ul>
 <div id="intro">
     <button>添加</button>
 </div>
@@ -60,17 +79,20 @@
 
         });
 
+        /*-----------------------*/
 
-        /*$("button").on("click",function(){
-            $(".nav_list").append('<li class="">\n' +
-                '            <a class="nav_head" href="javascipt:;">娱乐新闻</a>\n' +
-                '        </li>')
+        /*$("button").on("click", function(){
+            var html = $(".dn").html();
+            $(".nav_list").html(html);
 
-        })
-
-        $("body").on("click",".nav_list li",function(){
-            // console.log($(this));
         })*/
+
+        /*$("body").on("click",".nav_list li",function(){
+            console.log($(this));
+        })*/
+
+
+        /*------------------*/
 
         /*$(".test").on("click", function () {
             var b = 20;
